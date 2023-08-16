@@ -19,7 +19,6 @@ import com.example.notesapp.Models.Note
 import com.example.notesapp.Models.NoteViewModel
 import com.example.notesapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() ,NotesAdapter.Notesclicklistner,PopupMe
 
     lateinit var database:NoteDatabase
 
-    private val noteviewModel:NoteViewModel by viewModels()
+    val noteviewModel:NoteViewModel by viewModels()
     lateinit var adapter: NotesAdapter
 
     lateinit var selectedNote:Note
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() ,NotesAdapter.Notesclicklistner,PopupMe
                 adapter.updateList(list)
             }
         }
-//        database=NoteDatabase.getDatabase(this)
+        database=NoteDatabase.getDatabase(this)
     }
 
     private fun initUI() {
@@ -127,3 +126,5 @@ class MainActivity : AppCompatActivity() ,NotesAdapter.Notesclicklistner,PopupMe
     }
 
 }
+
+

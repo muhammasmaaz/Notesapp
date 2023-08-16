@@ -9,10 +9,8 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.Models.Note
 import com.example.notesapp.R
-import java.util.Random
-import javax.inject.Inject
 
-class NotesAdapter @Inject constructor (private val context: Context, val listener:Notesclicklistner):
+class NotesAdapter (private val context: Context, val listener:Notesclicklistner):
     RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
     private val NotesList=ArrayList<Note>()

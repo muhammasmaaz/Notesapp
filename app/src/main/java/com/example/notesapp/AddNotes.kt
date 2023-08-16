@@ -7,15 +7,13 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.notesapp.Models.Note
 import com.example.notesapp.databinding.ActivityAddNotesBinding
-import com.example.notesapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.logging.SimpleFormatter
-import javax.inject.Inject
 
 @AndroidEntryPoint
+
 class AddNotes : AppCompatActivity() {
     private lateinit var binding: ActivityAddNotesBinding
 

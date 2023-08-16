@@ -3,10 +3,9 @@ package com.example.notesapp.Database
 import androidx.lifecycle.LiveData
 import com.example.notesapp.Models.Note
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class NotesRepository @Inject constructor(val noteDao:NoteDao) {
+
+class NotesRepository @Inject constructor (private val noteDao:NoteDao) {
     val allNotes:LiveData<List<Note>> = noteDao.getAllNotes()
 
     suspend fun insert(note:Note){

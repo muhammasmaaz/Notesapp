@@ -13,8 +13,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class   NoteViewModel @Inject constructor(private val notesRepository: NotesRepository) : ViewModel() {
-    val allNotes : LiveData<List<Note>> = notesRepository.allNotes
+class NoteViewModel @Inject constructor (application: Application, var notesRepository : NotesRepository) :ViewModel() {
+
+    val allNotes : LiveData<List<Note>>
+
+    // on below line we are initializing
+    // our dao, repository and all notes
+    init {
+        val dao = NoteDatabase.getDatabase(application).getNoteDao()
+        notesRepository = NotesRepository(dao)
+        allNotes = notesRepository.allNotes
+    }
+
 
     fun deleteNote (note: Note) = viewModelScope.launch(Dispatchers.IO) {
         notesRepository.delete(note)
